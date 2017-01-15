@@ -67,7 +67,7 @@ $connection = new \Abraham\TwitterOAuth\TwitterOAuth($config['twitter_app_key'],
 
 foreach($events as $event) {
     $tweetContent = getTweetContent($config['prefix'], $event->summaryDisplay, $event->siteurl);
-    print $tweetContent;
+    print $tweetContent."\n";
     $statues = $connection->post("statuses/update", ["status" => $tweetContent]);
     if (property_exists($statues, 'errors') && $statues->errors) {
         print "ERROR\n";
